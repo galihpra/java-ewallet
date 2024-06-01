@@ -5,16 +5,19 @@ class CustomerData{
     String alamat;
     private String ewallet;
 
-    public void setNama(String nama){
-        this.nama = nama;
+    public void inputData(Scanner scanner) {
+        System.out.print("Masukkan nama anda: ");
+        this.nama = scanner.nextLine();
+
+        System.out.print("Masukkan alamat anda: ");
+        this.alamat = scanner.nextLine();
+
+        System.out.print("Masukkan e-wallet yang anda pilih: ");
+        this.ewallet = scanner.nextLine();
     }
 
     public String getNama(){
         return nama;
-    }
-
-    public void setEwallet(String ewallet){
-        this.ewallet = ewallet;
     }
 
     public String getEwallet(){
@@ -24,15 +27,14 @@ class CustomerData{
 
 public class Customer {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
         CustomerData signUp = new CustomerData();
-
-        signUp.setNama("Galih Prayoga");
-        System.out.println("Anda terdaftar sebagai "+signUp.getNama());
+        signUp.inputData(input);
         
-        signUp.alamat = "Wonogiri";
+        System.out.println("======================= Pendaftaran Berhasil!!! =======================");
+        System.out.println("Anda terdaftar sebagai: "+signUp.getNama());
+        System.out.println("E-wallet yang anda pilih adalah: "+signUp.getEwallet());
         System.out.println("Alamat yang anda daftarkan adalah "+signUp.alamat);
-
-        signUp.setEwallet("OVO");
-        System.out.println("E-wallet yang anda pilih adalah "+signUp.getEwallet());
     }
 }
